@@ -1,0 +1,15 @@
+# Entorno virtual
+venv/
+.venv/
+Env/
+
+# Variables de entorno secretas
+.env
+
+# Archivos temporales y caché de Python
+__pycache__/
+*.pyc
+temp_*
+.chroma/
+chroma/
+.streamlit/
