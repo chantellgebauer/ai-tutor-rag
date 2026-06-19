@@ -1,4 +1,4 @@
- Tu Tutor de IA Inteligente (RAG)
+ Tu Tutor de IA Inteligente (RAG) Hecho con Vibe Coding
 
  https://ai-tutor-rag-mi-primera-ia.streamlit.app/
 
