@@ -3,6 +3,6 @@ langchain
 langchain-core
 langchain-community
 langchain-groq
-chromadb
+faiss-cpu
 pypdf
 python-dotenv

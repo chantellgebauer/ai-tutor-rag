@@ -3,9 +3,9 @@ from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_groq import ChatGroq
-# Importamos un generador de embeddings básico en memoria
 from langchain_core.embeddings import FakeEmbeddings
-from langchain_community.vectorstores import Chroma
+# Cambiamos Chroma por el conector ultra-estable de FAISS
+from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
@@ -17,22 +17,22 @@ class AITutor:
         # 1. El cerebro (LLM) Gratuito con Groq
         self.llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0.3)
         
-        # 2. Embeddings falsos de tamaño 384 (idéntico a MiniLM) para estructurar Chroma en memoria
+        # 2. Embeddings en memoria de tamaño 384
         self.embeddings = FakeEmbeddings(size=384)
         
         self.vector_store = None
         self.retriever = None
 
     def ingest_pdf(self, file_path: str):
-        """Lee el PDF, lo fragmenta y lo guarda en la base de datos vectorial"""
+        """Lee el PDF, lo fragmenta y lo guarda en la base de datos vectorial FAISS"""
         loader = PyPDFLoader(file_path)
         docs = loader.load()
         
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         splits = text_splitter.split_documents(docs)
         
-        # Guardar en ChromaDB de forma local e instantánea
-        self.vector_store = Chroma.from_documents(documents=splits, embedding=self.embeddings)
+        # Guardar en FAISS (En memoria, libre de errores de protobuf)
+        self.vector_store = FAISS.from_documents(documents=splits, embedding=self.embeddings)
         self.retriever = self.vector_store.as_retriever(search_kwargs={"k": 3})
 
     def format_docs(self, docs):
