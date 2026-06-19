@@ -13,7 +13,7 @@ Desarrollado de forma eficiente utilizando modelos Open-Source de última genera
 * **Frontend:** Streamlit
 * **Orquestación de IA:** LangChain (Sintaxis moderna LCEL)
 * **Cerebro (LLM):** ChatGroq (`llama-3.1-8b-instant`)
-* **Base de Datos Vectorial:** ChromaDB
+* **Base de Datos Vectorial:** FAISS
 * **Procesamiento:** PyPDFLoader
 
 ---
@@ -35,7 +35,7 @@ Para lograr un sistema eficiente, rápido y 100% gratuito, el proyecto fue dise�
 * **`streamlit`**: Framework encargado de renderizar la interfaz gráfica del chat y el cargador de archivos en tiempo real.
 * **`langchain` / `langchain-core`**: Motor de orquestación de IA que gestiona el pipeline mediante la sintaxis moderna **LCEL** (LangChain Expression Language).
 * **`langchain-groq`**: Conector oficial para la comunicación con la API de Groq.
-* **`chromadb`**: Base de datos vectorial local en memoria que almacena y busca los fragmentos del documento de forma eficiente.
+* **`chromadb`** ha dado problemas en producción por lo que hemos cambiado a FAISS
 * **`pypdf`**: Herramienta encargada de la extracción de texto puro desde el archivo PDF cargado.
 * **`python-dotenv`**: Componente de seguridad que inyecta la API Key desde el archivo `.env` sin exponerla en el código fuente.
 
