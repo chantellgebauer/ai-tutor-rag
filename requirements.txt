@@ -1,7 +1,8 @@
+streamlit
 langchain
+langchain-core
 langchain-community
-langchain-openai
+langchain-groq
 chromadb
 pypdf
-streamlit
 python-dotenv
