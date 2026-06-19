@@ -1,5 +1,7 @@
  Tu Tutor de IA Inteligente (RAG)
 
+ https://ai-tutor-rag-mi-primera-ia.streamlit.app/
+
 EduMind es una aplicación web interactiva que transforma cualquier documento PDF en un tutor educativo personalizado. Utilizando una arquitectura **RAG (Retrieval-Augmented Generation)**, la IA procesa el documento, indexa su conocimiento en una base de datos vectorial en memoria y responde preguntas manteniendo el contexto del chat.
 
 Desarrollado de forma eficiente utilizando modelos Open-Source de última generación.
